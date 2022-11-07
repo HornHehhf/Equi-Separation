@@ -41,6 +41,7 @@ To reproduce the main experiments
 ```
 sh run_experiments.sh
 ```
+Note that there are too many experiments in run_experiments.sh, so please run it by keeping some part and commenting the remaining
 
 You can also choose to reproduce specific experiments, e.g., Figure 1 in the paper
 ```
