@@ -24,7 +24,7 @@ pip3 install -r requirements.txt
 - Experiments scripts (run_experiments.sh)
 
 ## Change the Dir Path
-Change the /path/to/working/dir to your working dir.
+Change the /path/to/working/dir to your working directory
 
 ## Reproducing experiments
 You need to save the data before you run the experiments (the config in data.py and imbalanced_data.py can be changed for your purpose)
