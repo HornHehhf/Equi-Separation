@@ -111,4 +111,12 @@ CUDA_VISIBLE_DEVICES=5 nohup sh run_optimization_mixresidual.sh ResNetMixV2 4 la
 CUDA_VISIBLE_DEVICES=0 nohup sh run_optimization_frozen.sh cc 18 adam > logs/cc_GFNN_18_100_adam_within_terminal_frozen.log 2>&1 &
 CUDA_VISIBLE_DEVICES=1 nohup sh run_optimization_frozen.sh cc 18 adam > logs/cc_GFNN_18_100_adam_within_terminal_unfrozen.log 2>&1 &
 
+# Feedforward neural networks on original images: Fashion-MNIST (32, 32) and CIFAR10 (3, 32, 32)
+CUDA_VISIBLE_DEVICES=0 nohup sh run_optimization_original.sh fashion_mnist 2 1000 adam > logs/paper/fashion_mnist_GFNNOriginal_2_1000_adam_within_terminal.log 2>&1 &
+CUDA_VISIBLE_DEVICES=1 nohup sh run_optimization_original.sh fashion_mnist 6 1000 adam > logs/paper/fashion_mnist_GFNNOriginal_6_1000_adam_within_terminal.log 2>&1 &
+CUDA_VISIBLE_DEVICES=2 nohup sh run_optimization_original.sh fashion_mnist 18 1000 adam > logs/paper/fashion_mnist_GFNNOriginal_18_1000_adam_within_terminal.log 2>&1 &
+
+CUDA_VISIBLE_DEVICES=3 nohup sh run_optimization_original.sh cifar10 2 1000 adam > logs/paper/cifar10_GFNNOriginal_2_1000_adam_within_terminal.log 2>&1 &
+CUDA_VISIBLE_DEVICES=4 nohup sh run_optimization_original.sh cifar10 6 1000 adam > logs/paper/cifar10_GFNNOriginal_6_1000_adam_within_terminal.log 2>&1 &
+CUDA_VISIBLE_DEVICES=5 nohup sh run_optimization_original.sh cifar10 18 1000 adam > logs/paper/cifar10_GFNNOriginal_18_1000_adam_within_terminal.log 2>&1 &
 

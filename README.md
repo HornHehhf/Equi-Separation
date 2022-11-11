@@ -56,3 +56,7 @@ CUDA_VISIBLE_DEVICES=6 nohup python representation_dynamics_terminal.py data=cfm
 CUDA_VISIBLE_DEVICES=7 nohup python representation_dynamics_terminal.py data=cfm model=GFNN layer_num=18 hidden_size=100 measure=within_variance optimization=adam lr=3e-4 > logs/cfm_GFNN_18_100_adam_within_3e-4_terminal.log 2>&1 &
 ```
 
+## More experiments
+Feedforward neural networks (width=1000) with different layers on original images: Fashion-MNIST (32, 32) and CIFAR-10 (3, 32, 32)
+- Fashion-MNIST (figures/fashion_mnist*png)
+- CIFAR-10 (figures/cifar10*png)
