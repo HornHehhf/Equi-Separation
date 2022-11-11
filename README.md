@@ -57,6 +57,6 @@ CUDA_VISIBLE_DEVICES=7 nohup python representation_dynamics_terminal.py data=cfm
 ```
 
 ## More experiments
-Feedforward neural networks (width=1000) with different layers on original images: Fashion-MNIST (32, 32) and CIFAR-10 (3, 32, 32)
+Feedforward neural networks (width=1000) with different depths on original images: Fashion-MNIST (32, 32) and CIFAR-10 (3, 32, 32)
 - Fashion-MNIST (figures/fashion_mnist*png)
 - CIFAR-10 (figures/cifar10*png)
