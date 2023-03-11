@@ -57,6 +57,10 @@ CUDA_VISIBLE_DEVICES=7 nohup python representation_dynamics_terminal.py data=cfm
 ```
 
 ## More experiments
-Feedforward neural networks (width=1000) with different depths on original images: Fashion-MNIST (32, 32) and CIFAR-10 (3, 32, 32)
-- Fashion-MNIST (figures/fashion_mnist*png)
-- CIFAR-10 (figures/cifar10*png)
+Equi-separation law also exists in feedforward neural networks (width=1000) with different depths on original images: Fashion-MNIST (32, 32) and CIFAR-10 (3, 32, 32)
+- Fashion-MNIST (figures/OriginalSize/fashion_mnist*png)
+- CIFAR-10 (figures/OriginalSize/cifar10*png)
+
+Equi-separation law does not exist in feedforward neural networks without batch normalization: figures/NoBN/*png
+
+Equi-separation law does not exist in linearized neural networks (without nonlinear activation function): figures/Linearized/*png

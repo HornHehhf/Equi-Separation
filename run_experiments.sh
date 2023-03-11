@@ -120,3 +120,8 @@ CUDA_VISIBLE_DEVICES=3 nohup sh run_optimization_original.sh cifar10 2 1000 adam
 CUDA_VISIBLE_DEVICES=4 nohup sh run_optimization_original.sh cifar10 6 1000 adam > logs/paper/cifar10_GFNNOriginal_6_1000_adam_within_terminal.log 2>&1 &
 CUDA_VISIBLE_DEVICES=5 nohup sh run_optimization_original.sh cifar10 18 1000 adam > logs/paper/cifar10_GFNNOriginal_18_1000_adam_within_terminal.log 2>&1 &
 
+# Linearized neural networks
+CUDA_VISIBLE_DEVICES=0 nohup sh run_optimization_linearized.sh 18 adam > logs/paper/cfm_GLNN_18_100_adam_within_terminal.log 2>&1 &
+
+# No Batch normalization
+CUDA_VISIBLE_DEVICES=7 nohup sh run_optimization_NoBN.sh 18 adam > logs/paper/cfm_GFNNNoBN_18_100_adam_within_terminal.log 2>&1 &

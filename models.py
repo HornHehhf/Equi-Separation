@@ -772,3 +772,89 @@ class GFNNOriginal(nn.Module):
             if l == i + 2:
                 return out
 
+class GLNN(nn.Module):
+    def __init__(self, layer_num, input_size, hidden_size, output_size):
+        super(GLNN, self).__init__()
+        self.layer_num = layer_num
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.output_size = output_size
+        self.inputs = nn.Sequential(nn.Linear(input_size, hidden_size),
+                                    nn.BatchNorm1d(hidden_size))
+        layers = []
+        for i in range(layer_num):
+            layers += [nn.Sequential(nn.Linear(hidden_size, hidden_size),
+                                     nn.BatchNorm1d(hidden_size))]
+        self.layers = nn.ModuleList(layers)
+        self.classifier = nn.Linear(hidden_size, output_size)
+    def forward(self, x):
+        if x.size(1) == 3:
+            x = x[:, 1, :, :]
+        # print(x.shape)
+        out = x.view(x.size(0), -1)
+        out = self.inputs(out)
+        for i in range(self.layer_num):
+            layer = self.layers[i]
+            out = layer(out)
+        out = self.classifier(out)
+        return out
+
+    def get_features(self, x, l):
+        if x.size(1) == 3:
+            x = x[:, 1, :, :]
+        # print(x.shape)
+        out = x.view(x.size(0), -1)
+        if l == 0:
+            return out
+        out = self.inputs(out)
+        if l == 1:
+            return out
+        for i in range(self.layer_num):
+            layer = self.layers[i]
+            out = layer(out)
+            if l == i + 2:
+                return out
+
+
+class GFNNNoBN(nn.Module):
+    def __init__(self, layer_num, input_size, hidden_size, output_size):
+        super(GFNNNoBN, self).__init__()
+        self.layer_num = layer_num
+        self.input_size = input_size
+        self.hidden_size = hidden_size
+        self.output_size = output_size
+        self.inputs = nn.Sequential(nn.Linear(input_size, hidden_size),
+                                    nn.ReLU(inplace=True))
+        layers = []
+        for i in range(layer_num):
+            layers += [nn.Sequential(nn.Linear(hidden_size, hidden_size),
+                                     nn.ReLU(inplace=True))]
+        self.layers = nn.ModuleList(layers)
+        self.classifier = nn.Linear(hidden_size, output_size)
+    def forward(self, x):
+        if x.size(1) == 3:
+            x = x[:, 1, :, :]
+        # print(x.shape)
+        out = x.view(x.size(0), -1)
+        out = self.inputs(out)
+        for i in range(self.layer_num):
+            layer = self.layers[i]
+            out = layer(out)
+        out = self.classifier(out)
+        return out
+
+    def get_features(self, x, l):
+        if x.size(1) == 3:
+            x = x[:, 1, :, :]
+        # print(x.shape)
+        out = x.view(x.size(0), -1)
+        if l == 0:
+            return out
+        out = self.inputs(out)
+        if l == 1:
+            return out
+        for i in range(self.layer_num):
+            layer = self.layers[i]
+            out = layer(out)
+            if l == i + 2:
+                return out

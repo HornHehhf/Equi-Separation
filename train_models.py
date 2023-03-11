@@ -17,6 +17,10 @@ def build_model(config):
         model = GFNN(config['layer_num'], config['input_size'], config['hidden_size'], config['class_num'])
     elif config['model'] == 'GFNNOriginal':
         model = GFNNOriginal(config['layer_num'], config['input_size'], config['hidden_size'], config['class_num'])
+    elif config['model'] == 'GLNN':
+        model = GLNN(config['layer_num'], config['input_size'], config['hidden_size'], config['class_num'])
+    elif config['model'] == 'GFNNNoBN':
+        model = GFNNNoBN(config['layer_num'], config['input_size'], config['hidden_size'], config['class_num'])
     elif config['model'] == 'FNNWS':
         model = FNNWS(config['input_size'], config['hidden_size'], output_size=config['class_num'])
     elif config['model'] == 'FNNSW':
