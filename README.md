@@ -1,12 +1,16 @@
 # Equi-Separation Law
-This is the code repository for the ArXiv paper [A Law of Data Separation in Deep Learning](https://arxiv.org/pdf/2210.17020.pdf).
+This is the code repository for the PNAS paper [A Law of Data Separation in Deep Learning](https://www.pnas.org/doi/epdf/10.1073/pnas.2221704120).
 If you use this code for your work, please cite
 ```
-@article{he2022law,
-  title={A Law of Data Separation in Deep Learning},
+@article{he2023law,
+  title={A law of data separation in deep learning},
   author={He, Hangfeng and Su, Weijie J},
-  journal={arXiv preprint arXiv:2210.17020},
-  year={2022}
+  journal={Proceedings of the National Academy of Sciences},
+  volume={120},
+  number={36},
+  pages={e2221704120},
+  year={2023},
+  publisher={National Acad Sciences}
 }
 ```
 ## Installing Dependencies
